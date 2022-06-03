@@ -38,7 +38,7 @@ fn safe_print_using_match(result: Result<i32, SquareValueError>) {
 
 fn safe_print_using_if_let(result: Result<i32, SquareValueError>) {
     if let Ok(value) = result {
-        println!("also have a result: {}", value);
+        println!("also have a result some other name: {}", value);
     } else {
         println!("also have an error but I can't access the type");
     }

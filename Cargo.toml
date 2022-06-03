@@ -3,6 +3,13 @@ name = "rust-everyday"
 version = "0.1.0"
 edition = "2021"
 
+[[bin]]
+name = "day4"
+path = "src/bin/day4_result.rs"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+futures = "0.3.4"
+reqwest = "0.10.1"
+tokio = { version = "0.2.11", features = ["full"] }
