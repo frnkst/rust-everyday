@@ -12,11 +12,14 @@ struct Address {
 
 impl Format for Address {
     fn format_address(&self) -> String {
-        let s = &self.street;
-        let n = &self.number;
-        let c = &self.city;
+        let mut output = String::from("");
+        output.push_str(&self.street);
+        output.push_str(", ");
+        output.push_str(&self.number.to_string());
+        output.push_str(", ");
+        output.push_str(&self.city);
 
-        s.to_owned() + "," + &*n.to_string().to_owned() + "," + c
+        output
     }
 }
 
@@ -27,5 +30,5 @@ fn main() {
         city: String::from("some city")
     };
 
-    println!("address is: {}", address.concatenate());
+    println!("address is: {}", address.format_address());
 }
