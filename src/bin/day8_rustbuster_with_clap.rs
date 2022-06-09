@@ -31,10 +31,6 @@ struct FileResult {
 fn main() {
     let args = Args::parse();
 
-    for i in values_of(args.extension) {
-        print!("frank;: {}", i);
-    }
-
     let reader = BufReader::new(File::open(args.wordlist).expect("Cannot open wordlist"));
 
     let n_workers = 4;

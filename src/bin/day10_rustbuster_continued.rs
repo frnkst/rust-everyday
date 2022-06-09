@@ -18,14 +18,15 @@ struct Args {
     #[clap(short, long)]
     url: String,
 
-    /// Extensions
+    /// File extensions
     #[clap(short, long, multiple_values=true)]
     extension: Vec<String>,
 }
 
 struct FileResult {
     path: String,
-    status: StatusCode
+    status: StatusCode,
+    extension: String
 }
 
 fn main() {
@@ -47,11 +48,13 @@ fn main() {
             let ext = extension.to_owned().clone();
             let m = l.clone();
             pool.execute(move|| {
-                let url = format!("{}{}{}{}", url, "/", m, ext);
+                let url = format!("{}{}{}.{}", url, "/", m, ext);
+                //println!("url is {}", url);
                 let status = reqwest::blocking::get(&url).unwrap().status();
                 let res = FileResult {
                     status,
-                    path: m.to_string()
+                    path: m.to_string(),
+                    extension: ext.to_string()
                 };
 
                 tx.send(res).expect("channel will be there waiting for the pool");
@@ -59,8 +62,8 @@ fn main() {
         }
     }
 
-    for result in rx.iter().take(n_jobs) {
-        println!("{}.html [{}]", result.path, result.status);
+    for result in rx.iter().take(100) {
+        println!("{}.{} [{}]", result.path, result.extension, result.status);
     }
 
     thread::sleep(Duration::from_secs(2));

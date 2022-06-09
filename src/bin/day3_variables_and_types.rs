@@ -8,7 +8,7 @@ fn main() {
     y = 501; // works because the variable is mutable
     println!("mutable number: {}", y);
 
-    let mut z = 500; // warning unused mut
+    let z = 500; // warning unused mut
     // z = "test"; mismatched types, expected i32 but got &str
     println!("number: {}", z);
 
@@ -54,8 +54,8 @@ fn main() {
     assert_eq!(vec.pop(), Some(2));
 
     // initialize the vector like this
-    let vec1 = vec![1, 2, 3];
+    let _vec1 = vec![1, 2, 3];
 
     // or also like this
-    let vec2 = Vec::from([1, 2, 3, 4]);
+    let _vec2 = Vec::from([1, 2, 3, 4]);
 }

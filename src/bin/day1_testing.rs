@@ -29,4 +29,6 @@ mod tests {
     }
 }
 
-fn main() {}
+fn main() {
+    let _a = add(5,2);
+}
