@@ -37,8 +37,6 @@ fn main() {
     let n_workers = 4;
     let n_jobs = 8;
 
-    n_jobs.checked_abs();
-
     let pool = ThreadPool::new(n_workers);
     let (tx, rx) = channel();
 
