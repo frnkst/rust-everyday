@@ -20,7 +20,7 @@ struct Args {
 
     /// File extensions
     #[clap(short, long, multiple_values=true)]
-    extension: Vec<String>,
+    extension: Vec<String>
 }
 
 struct FileResult {
@@ -35,7 +35,6 @@ fn main() {
     let reader = BufReader::new(File::open(args.wordlist).expect("Cannot open wordlist"));
 
     let n_workers = 4;
-    let n_jobs = 8;
 
     let pool = ThreadPool::new(n_workers);
     let (tx, rx) = channel();
