@@ -31,13 +31,13 @@ fn main() {
     other_array.map(|it| { println!("other array: {}", it); });
 
     //for loop through array
-    for x in other_array {
-        println!("{x}");
+    for _x in other_array {
+        println!("{_x}");
     }
 
     // but this works also
-    for x in &other_array {
-        println!("{x}");
+    for _x in &other_array {
+        println!("{_x}");
     }
 
     // a list is called a vector
@@ -46,8 +46,8 @@ fn main() {
     vec.push(2);
 
     // loop through a vector
-    for x in &vec {
-        println!("{x}");
+    for _x in &vec {
+        println!("{_x}");
     }
 
     assert_eq!(vec.len(), 2);
