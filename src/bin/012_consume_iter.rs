@@ -1,8 +1,6 @@
 use threadpool::ThreadPool;
 use std::sync::mpsc::channel;
-use std::{thread};
 use reqwest::{StatusCode};
-use std::time::{Duration};
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 use clap::Parser;
