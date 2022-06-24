@@ -16,10 +16,10 @@ fn bubble_sort(unsorted_list: Vec<i32>) -> Vec<i32> {
     list
 }
 
-fn get_long_random_vec() -> Vec<i32> {
+fn get_long_random_vec(length: &i32) -> Vec<i32> {
     let mut rng = thread_rng();
     let mut vec = vec![];
-    for _ in 0..10000000 {
+    for _ in 0..*length {
         let random_number = rng.gen_range(1..100000000);
         vec.push(random_number);
     }
@@ -31,13 +31,13 @@ fn main() {
     assert_eq!(bubble_sort(vec![5,6,9,3,5]), vec![3,5,5,6,9]);
 
     let now = Instant::now();
-    bubble_sort(get_long_random_vec());
+    bubble_sort(get_long_random_vec(&10_000));
 
     // Sort 10'000 items with bubble sort in 8 seconds
     println!("Bubble sort [{} seconds]", now.elapsed().as_secs());
 
     let now = Instant::now();
-    get_long_random_vec().sort();
+    get_long_random_vec(&10_000_000).sort();
 
     // Sort 10'000'000 items natively in 10 seconds
     println!("Native sort [{} seconds]", now.elapsed().as_secs());
