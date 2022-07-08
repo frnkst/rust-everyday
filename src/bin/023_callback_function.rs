@@ -15,6 +15,14 @@ fn main() {
  let say_you = move |x, y| say_three_things("you", x, y);
  let say_you_are = move |y| say_you("are", y);
  say_you_are("getting the hang of the closures");
+
+ fn say_you_without_closure(x: &str, y: &str) {
+     say_three_things("you", x, y);
+ }
+
+ let say_you_are2 = move |y| say_you("are", y);
+ say_you_are2("works too");
+
 }
 
 fn say_hello(name: &str) {
