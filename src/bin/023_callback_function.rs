@@ -1,4 +1,5 @@
 fn main() {
+ // everything normal here
  say_hello("frank");
 
  // pass argument seperately
@@ -7,13 +8,21 @@ fn main() {
  // pass a closure
  say_some_more("you are nice!", |i| println!("something else {}", i), "bla");
 
- let b = say_hello;
- let a = Box::new(b);
- in_a_box(a);
+ // use closure to bind a parameter to a function and don't execute it yet
+ let say_hello_to_franky = move || say_hello("franky");
+ execute_callback_function(say_hello_to_franky);
+
+ let say_you = move |x, y| say_three_things("you", x, y);
+ let say_you_are = move |y| say_you("are", y);
+ say_you_are("getting the hang of the closures");
 }
 
 fn say_hello(name: &str) {
     println!("hello {}", name);
+}
+
+fn say_three_things(one: &str, two: &str, three: &str) {
+    println!("{} {} {}", one, two, three);
 }
 
 fn say_some_more(more: &str, hello: fn(&str), arg: &str) {
@@ -21,6 +30,6 @@ fn say_some_more(more: &str, hello: fn(&str), arg: &str) {
     println!("and one more thing: {}", more);
 }
 
-fn in_a_box(callback: Box<dyn Fn(&str)>) {
+fn execute_callback_function(callback: fn()) {
     callback();
 }
