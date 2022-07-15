@@ -1,6 +1,5 @@
-use std::fmt::Error;
 use notify_rust::Notification;
-use headless_chrome::{Browser, protocol::page::ScreenshotFormat};
+use headless_chrome::{Browser};
 
 fn browse_wikipedia() -> Result<(), failure::Error> {
     let browser = Browser::default()?;

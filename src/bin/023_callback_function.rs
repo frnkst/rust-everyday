@@ -22,7 +22,7 @@ fn main() {
 
  let say_you_are2 = move |y| say_you("are", y);
  say_you_are2("works too");
-
+ say_you_without_closure("a", "b")
 }
 
 fn say_hello(name: &str) {

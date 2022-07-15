@@ -48,7 +48,7 @@ fn find_exact_hash(hashed_password: String, start_hashed_password: String, respo
 fn parse_line(line: &str) -> (&str, i32) {
     let one_match: Vec<&str> = line.split(":").collect();
     let end_hashed_password = one_match[0];
-    let number_of_breaches = one_match[1].parse::<i32>().unwrap();;
+    let number_of_breaches = one_match[1].parse::<i32>().unwrap();
     (end_hashed_password, number_of_breaches)
 }
 

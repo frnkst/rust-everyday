@@ -5,7 +5,7 @@ fn main() {
     let mut canvas = Canvas::new(100, 100);
 
     // create a new drawing
-    let mut rect = Drawing::new()
+    let rect = Drawing::new()
     // give it a shape
     .with_shape(Shape::Rectangle {
         width: 50,
