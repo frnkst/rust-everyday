@@ -6,3 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+reqwest = { version = "0.10.1", features = ["blocking"] }
+clap = { version = "3.1.6", features = ["derive"] }
+tokio = { version = "0.2.11", features = ["full"] }
+threadpool = "1.8.1"

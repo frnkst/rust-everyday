@@ -23,7 +23,7 @@ members = [
     "_020_option_and_result",
     "_021_callback_function",
     "_022_closures",
-    "_023_have_I_been_pawned",
+    "_023_have_i_been_pawned",
     "_024_dialoguer",
     "_025_aes_encryption",
 ]

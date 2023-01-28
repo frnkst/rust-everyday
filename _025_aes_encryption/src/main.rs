@@ -1,15 +1,10 @@
-use aes::{Aes128, Aes256};
+use aes::{Aes128 };
 use block_modes::{BlockMode, Cbc};
 use block_modes::block_padding::Pkcs7;
-use hex_literal::hex;
 use std::{fs, str};
-use std::borrow::Borrow;
-use std::env;
 use std::fs::File;
 use std::io::Write;
-use owo_colors::OwoColorize;
 use rand::{Rng, thread_rng};
-use rand::distributions::Alphanumeric;
 
 type Aes128Cbc = Cbc<Aes128, Pkcs7>;
 
@@ -19,10 +14,6 @@ fn main() {
 
     let file_path =  "/Users/frank/Code/rust-everyday/bla.txt";
     let original_file = fs::read(file_path).unwrap();
-
-    println!("Message: {}",message);
-    println!("Key: {}", hex::encode(&key));
-    println!("IV: {}", hex::encode(&iv));
 
     let ciphertext = encrypt(&iv, &key, &original_file);
 
